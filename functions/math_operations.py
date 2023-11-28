@@ -12,7 +12,7 @@ def max_occurrence_elements(arr):
 def once_occurrence_amount(arr):
     return len([x for x in set(arr) if arr.count(x) == 1])
 def stat(arr):
-    if not isinstance(arr, list) or not arr or any(isinstance(x, float) for x in arr):
+    if not isinstance(arr, list) or not arr or not all(isinstance(x, int) for x in arr):
         return [0, 0, 0, [], 0]
 
     total_amount = len(arr)
