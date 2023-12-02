@@ -1,11 +1,11 @@
-#Create venv
+# Create venv
 python -m venv .venv
 
-#Activate venv 
+# Activate venv 
 source .venv/bin/activate
 
-#Upgrade requirements
+# Upgrade requirements
 pip freeze > requirements.txt
 
-#Install all needed packages
+# Install all needed packages
 pip install -r requirements.txt
