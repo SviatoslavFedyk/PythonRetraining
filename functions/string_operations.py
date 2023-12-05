@@ -1,3 +1,5 @@
+from helper.custom_exceptions import *
+
 def transforming_part(part):
     if sum(int(digit) ** 3 for digit in part) % 2 == 0:
         return part[::-1]
@@ -6,7 +8,10 @@ def transforming_part(part):
 
 
 def transform_string(str, n):
-    if n <= 0 or n > len(str):
-        return ""
+    if n <= 0:
+        raise NonPositiveIntegerException()
+    elif n > len(str):
+        raise StringBufferOverflowException()
+
     parts = [str[i:i+n] for i in range(0, len(str), n) if len(str[i:i+n]) == n]
     return ''.join(transforming_part(part) for part in parts)

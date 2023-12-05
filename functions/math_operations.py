@@ -1,4 +1,7 @@
+from helper.custom_exceptions import *
 def is_whole_div(num1, num2):
+    if num1 < 0 or num2 < 0 or not all(isinstance(x, int) for x in [num1,num2]):
+        raise NonPositiveIntegerException()
     return num1 % num2 == 0
 
 def max_ocurrence(arr):
