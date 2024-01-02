@@ -17,7 +17,7 @@ def transform_string(str, n):
     parts = [str[i:i+n] for i in range(0, len(str), n) if len(str[i:i+n]) == n]
     return ''.join(transforming_part(part) for part in parts)
 
-def extract_email_from_html(html):
+def extract_links_from_html(html):
     link_pattern = re.compile(r'href=["\'](https?://[^\s"\']+)', re.IGNORECASE)
     matches = re.findall(link_pattern, html)
     return matches

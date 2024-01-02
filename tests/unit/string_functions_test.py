@@ -23,7 +23,7 @@ def negative_test_transforming_string(str,n,expected_result):
         task_func.transform_string(str, n)
 
 @pytest.mark.parametrize("url, expected_result", [("https://en.wikipedia.org/wiki/Hideo_Ogata", links.hideo_ogata_wiki_links),("https://docs.python.org/3/", links.python_links)])
-def test_extract_emails_from_html(url,expected_result):
+def test_extract_links_from_html(url,expected_result):
     response = requests.get(url)
     html = response.text
-    assert task_func.extract_email_from_html(html) == expected_result
+    assert task_func.extract_links_from_html(html) == expected_result
