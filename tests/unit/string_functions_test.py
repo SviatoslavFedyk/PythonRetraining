@@ -1,6 +1,8 @@
 import functions.string_operations as task_func
 from helper.custom_exceptions import *
+import tests.unit.data.links_data as links
 import pytest
+import requests
 
 
 @pytest.mark.parametrize("str, n, expected_result", [("123456987654", 6, "234561876549"),
@@ -19,3 +21,9 @@ def test_transforming_string(str, n, expected_result):
 def negative_test_transforming_string(str,n,expected_result):
     with pytest.raises(expected_result) as e_info:
         task_func.transform_string(str, n)
+
+@pytest.mark.parametrize("url, expected_result", [("https://en.wikipedia.org/wiki/Hideo_Ogata", links.hideo_ogata_wiki_links),("https://docs.python.org/3/", links.python_links)])
+def test_extract_emails_from_html(url,expected_result):
+    response = requests.get(url)
+    html = response.text
+    assert task_func.extract_email_from_html(html) == expected_result
