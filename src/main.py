@@ -8,7 +8,7 @@ serializer_method = None
 def exit_if_needed(func):
     def wrapper(*args, **kwargs):
         result = func(*args, **kwargs)
-        if not callable(result) and (not result or result.lower() == 'exit'):
+        if not callable(result) and result.lower() == 'exit':
             print("Exiting.")
             exit()
         return result
