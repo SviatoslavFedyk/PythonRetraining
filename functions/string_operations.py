@@ -1,4 +1,5 @@
 from helper.custom_exceptions import *
+import re
 
 def transforming_part(part):
     if sum(int(digit) ** 3 for digit in part) % 2 == 0:
